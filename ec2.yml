@@ -1,14 +1,13 @@
 ---
--name : create ec2 instance
- hosts: localhost
-
- tasks: 
-   -name: ec2
-    amazon.aws.ec2_instance:
-    region: us-east-1
-    keypair: master
-    ami_id: ami-0e86e20dae9224db8
-    instance_type: t2.micro
-    wait: yes
-    count: 1
-    register: ec2
+- name: Launch an EC2 instance
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Create EC2 instance
+      ec2:
+        key_name: master                          # Replace with your key pair name
+        instance_type: t2.micro                       # Choose an instance type
+        image: ami-0e86e20dae9224db8                 # Replace with your desired AMI ID (Amazon Linux 2 example)
+        region: us-east-1                             # Choose your AWS region
+        wait: yes
+        count: 1           
