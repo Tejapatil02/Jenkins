@@ -7,7 +7,7 @@
     amazon.aws.ec2_instance:
     region: us-east-1
     keypair: master
-    ami_id:
+    ami_id: ami-0e86e20dae9224db8
     instance_type: t2.micro
     wait: yes
     count: 1
