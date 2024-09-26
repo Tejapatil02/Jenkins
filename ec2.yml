@@ -1,0 +1,14 @@
+---
+-name : create ec2 instance
+ hosts: localhost
+
+ tasks: 
+   -name: ec2
+    amazon.aws.ec2_instance:
+    region: us-east-1
+    keypair: master
+    ami_id:
+    instance_type: t2.micro
+    wait: yes
+    count: 1
+    register: ec2
